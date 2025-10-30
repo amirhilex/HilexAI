@@ -19,14 +19,14 @@ class TwikitScraper(ScraperPort):
         if os.path.exists(COOKIE_FILE):
             with open(COOKIE_FILE, 'r') as f:
                 cookies = json.load(f)
-                print("✅ Loaded cookies from file.")
+                print(" Loaded cookies from file.")
         else:
             auth_token = input("Enter your auth_token: ").strip()
             ct0 = input("Enter your ct0: ").strip()
             cookies = {"auth_token": auth_token, "ct0": ct0}
             with open(COOKIE_FILE, 'w') as f:
                 json.dump(cookies, f)
-                print("💾 Saved cookies to file.")
+                print(" Saved cookies to file.")
         return cookies
 
     async def search_tweets(self, keyword: str, limit: int = 100) -> List[Tweet]:
@@ -73,5 +73,5 @@ class TwikitScraper(ScraperPort):
             if not cursor:
                 break
 
-        print(f"✅ Collected {len(tweets_data)} tweets.")
+        print(f" Collected {len(tweets_data)} tweets.")
         return tweets_data
