@@ -1,18 +1,12 @@
 import asyncio
-import pandas as pd
-from hex_twitter.adapters.twikit_scraper import TwikitScraper
+from HilexAI.adapters.twikit_scraper import TwikitScraper
+from HilexAI.adapters.csv_repository import CSVRepository
 
 async def main():
     scraper = TwikitScraper()
-    tweets = await scraper.search_tweets("btc", limit=1000)
-
-    df = pd.DataFrame([
-        {**t.__dict__, "images": ", ".join(t.images) if t.images else ""}
-        for t in tweets
-    ])
-    df.to_csv("tweets.csv", index=False, encoding="utf-8-sig")
-    print("Saved tweets.csv")
-    print("Images saved in images/ folder")
+    tweets = await scraper.search_tweets("btc", limit=100)
+    repo = CSVRepository("tweets.csv")
+    repo.save_many(tweets)
 
 if __name__ == "__main__":
     asyncio.run(main())
