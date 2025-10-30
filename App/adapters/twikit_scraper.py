@@ -4,8 +4,8 @@ import asyncio
 from datetime import datetime
 from typing import List
 from twikit import Client
-from ..domain.entities import Tweet
-from ..domain.ports import ScraperPort
+from App.domain.entities import Tweet
+from App.domain.ports import ScraperPort
 
 COOKIE_FILE = "cookies.json"
 
@@ -75,3 +75,4 @@ class TwikitScraper(ScraperPort):
 
         print(f" Collected {len(tweets_data)} tweets.")
         return tweets_data
+
