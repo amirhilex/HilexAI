@@ -22,4 +22,4 @@ class CSVRepository:
             })
         df = pd.DataFrame(rows)
         df.to_csv(self.out_file, index=False, encoding="utf-8-sig")
-        print(f"Saved {len(rows)} rows to {self.out_file}")
+        print(f" Saved {len(rows)} rows to {self.out_file}")
