@@ -1,6 +1,6 @@
 import pandas as pd
 from typing import List
-from ..domain.entities import Tweet
+from App.domain.entities import Tweet
 
 class CSVRepository:
     def __init__(self, out_file: str = "tweets.csv"):
@@ -23,3 +23,4 @@ class CSVRepository:
         df = pd.DataFrame(rows)
         df.to_csv(self.out_file, index=False, encoding="utf-8-sig")
         print(f" Saved {len(rows)} rows to {self.out_file}")
+
