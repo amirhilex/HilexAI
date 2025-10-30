@@ -29,13 +29,13 @@ class TwikitScraper(ScraperPort):
                 print(" Saved cookies to file.")
         return cookies
 
-    async def search_tweets(self, keyword: str, limit: int = 100) -> List[Tweet]:
+    async def search_tweets(self, keyword: str, limit: int = 100, count: int = 20) -> List[Tweet]:
         tweets_data = []
         cursor = None
 
         while len(tweets_data) < limit:
             try:
-                tweets = await self.client.search_tweet(keyword, product='Top', count=20, cursor=cursor)
+                tweets = await self.client.search_tweet(keyword, product='Top', count=count, cursor=cursor)
             except Exception as e:
                 if "429" in str(e):
                     print("⚠️ Rate limit reached. Waiting 60 seconds...")
