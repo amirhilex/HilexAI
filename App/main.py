@@ -1,6 +1,6 @@
 import asyncio
-from HilexAI.adapters.twikit_scraper import TwikitScraper
-from HilexAI.adapters.csv_repository import CSVRepository
+from App.adapters.twikit_scraper import TwikitScraper
+from App.adapters.csv_repository import CSVRepository
 
 async def main():
     scraper = TwikitScraper()
