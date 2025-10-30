@@ -1,6 +1,6 @@
 import asyncio
-from adapters.twikit_scraper import TwikitScraper
-from adapters.csv_repository import CSVRepository
+from App.adapters.twikit_scraper import TwikitScraper
+from App.adapters.csv_repository import CSVRepository
 
 async def main():
     scraper = TwikitScraper()
