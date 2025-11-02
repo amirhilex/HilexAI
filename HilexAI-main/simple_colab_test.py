@@ -8,15 +8,20 @@
 
 # ===== تنظیم Credentials (سلول 2) =====
 import os
-os.environ['TWIKIT_EMAIL'] = 'your_email@gmail.com'
-os.environ['TWIKIT_USERNAME'] = 'your_username'
-os.environ['TWIKIT_PASSWORD'] = 'your_password'
+T_EMAIL = input(" your_email@gmail.com : ")
+T_USERNAME = input(" your_username : ")
+T_PASSWORD = input(" your_password : ")
+os.environ['TWIKIT_EMAIL'] = T_EMAIL
+os.environ['TWIKIT_USERNAME'] = T_USERNAME
+os.environ['TWIKIT_PASSWORD'] = T_PASSWORD
 
 # ===== تست ساده Scraper (سلول 3) =====
 from twikit import Client
 import asyncio
 
 async def test_scraper():
+    keyword = input("Enter keyword for search : ")
+    count = int(input("Enter tweets count : "))
     client = Client('en-US')
     
     # Login
@@ -27,7 +32,7 @@ async def test_scraper():
     )
     
     # Search
-    tweets = client.search_tweet('#python', count=10)
+    tweets = await client.search_tweet(keyword = input(), product='Top', count=50)
     
     # نمایش نتایج
     for i, tweet in enumerate(tweets, 1):
@@ -40,5 +45,6 @@ async def test_scraper():
 # اجرا
 results = asyncio.run(test_scraper())
 print(f"\n✅ {len(results)} توییت پیدا شد!")
+
 
 
