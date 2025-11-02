@@ -20,7 +20,7 @@ async def test_scraper():
     client = Client('en-US')
     
     # Login
-    client.login(
+    await client.login(
         auth_info_1=os.environ['TWIKIT_EMAIL'],
         auth_info_2=os.environ['TWIKIT_USERNAME'],
         password=os.environ['TWIKIT_PASSWORD']
@@ -40,4 +40,5 @@ async def test_scraper():
 # اجرا
 results = asyncio.run(test_scraper())
 print(f"\n✅ {len(results)} توییت پیدا شد!")
+
 
