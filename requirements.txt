@@ -1,4 +1,0 @@
-python-dotenv==1.0.1
-twikit==2.2.1
-aioboto3==13.1.1
-aiohttp==3.10.5
